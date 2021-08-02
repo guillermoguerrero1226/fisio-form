@@ -1,0 +1,29 @@
+body {
+  min-width: 360px !important;
+}
+.c-pointer {
+  cursor: pointer !important;
+}
+.h-100-per {
+  height: 100% !important;
+}
+.main-container {
+  height: 100%;
+  background-color: $background;
+  background-color: $background;
+}
+.v-stepper__content {
+  background-color: $background;
+}
+.stepper {
+  overflow: visible;
+}
+
+.sticky {
+  position: sticky;
+  top: 64px;
+  z-index: 1;
+}
+.v-app-bar {
+  height: 64px !important;
+}
