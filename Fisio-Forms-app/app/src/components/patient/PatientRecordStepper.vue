@@ -1,11 +1,11 @@
 <template>
   <div class="mt-4">
-    <v-stepper v-model="e1" non-linear class="stepper elevation-0">
+    <v-stepper v-model="currentStep" non-linear class="stepper elevation-0">
       <v-stepper-header class="secondary white--text sticky">
         <v-stepper-step
           editable
           step="1"
-          :complete="e1 > 1"
+          :complete="currentStep > 1"
           :complete-icon="'mdi-check'"
           :edit-icon="'mdi-check'"
         >
@@ -13,30 +13,78 @@
         </v-stepper-step>
         <v-divider></v-divider>
 
-        <v-stepper-step editable step="2"> Pagína 2 </v-stepper-step>
+        <v-stepper-step
+          editable
+          step="2"
+          :complete="currentStep > 2"
+          :complete-icon="'mdi-check'"
+          :edit-icon="'mdi-check'"
+        >
+          Pagína 2
+        </v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step editable step="3"> Pagína 3 </v-stepper-step>
+        <v-stepper-step
+          editable
+          step="3"
+          :complete="currentStep > 3"
+          :complete-icon="'mdi-check'"
+          :edit-icon="'mdi-check'"
+        >
+          Pagína 3
+        </v-stepper-step>
         <v-divider></v-divider>
 
-        <v-stepper-step editable step="4"> Pagína 4</v-stepper-step>
+        <v-stepper-step
+          editable
+          step="4"
+          :complete="currentStep > 4"
+          :complete-icon="'mdi-check'"
+          :edit-icon="'mdi-check'"
+        >
+          Pagína 4</v-stepper-step
+        >
         <v-divider></v-divider>
 
-        <v-stepper-step editable step="5"> Pagína 5</v-stepper-step>
+        <v-stepper-step
+          editable
+          step="5"
+          :complete="currentStep > 5"
+          :complete-icon="'mdi-check'"
+          :edit-icon="'mdi-check'"
+        >
+          Pagína 5</v-stepper-step
+        >
         <v-divider></v-divider>
 
-        <v-stepper-step editable step="6"> Pagína 6</v-stepper-step>
+        <v-stepper-step
+          editable
+          step="6"
+          :complete="currentStep > 6"
+          :complete-icon="'mdi-check'"
+          :edit-icon="'mdi-check'"
+        >
+          Pagína 6</v-stepper-step
+        >
         <v-divider></v-divider>
 
-        <v-stepper-step editable step="7"> Pagína 7</v-stepper-step>
+        <v-stepper-step
+          editable
+          step="7"
+          :complete="currentStep > 7"
+          :complete-icon="'mdi-check'"
+          :edit-icon="'mdi-check'"
+        >
+          Pagína 7</v-stepper-step
+        >
       </v-stepper-header>
 
       <v-stepper-items>
         <v-stepper-content step="1" class="px-0">
           <patient-general-info-save-form></patient-general-info-save-form>
           <div class="d-flex justify-end">
-            <v-btn color="primary" @click="e1 = e1 + 1">
+            <v-btn color="primary" @click="nextStep(false)">
               Siguiente Pagina
             </v-btn>
           </div>
@@ -45,10 +93,10 @@
         <v-stepper-content step="2">
           <patient-muscle-evaluation></patient-muscle-evaluation>
           <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="e1 = e1 - 1">
+            <v-btn color="primary" text @click="nextStep(true)">
               Pagina Anterior
             </v-btn>
-            <v-btn color="primary" @click="e1 = e1 + 1">
+            <v-btn color="primary" @click="nextStep(false)">
               Siguiente Pagina
             </v-btn>
           </div>
@@ -57,10 +105,10 @@
         <v-stepper-content step="3">
           <patient-upper-limb-arches-test></patient-upper-limb-arches-test>
           <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="e1 = e1 - 1">
+            <v-btn color="primary" text @click="nextStep(true)">
               Pagina Anterior
             </v-btn>
-            <v-btn color="primary" @click="e1 = e1 + 1">
+            <v-btn color="primary" @click="nextStep(false)">
               Siguiente Pagina
             </v-btn>
           </div>
@@ -68,43 +116,43 @@
         <v-stepper-content step="4">
           <patient-lower-limb-arches-test></patient-lower-limb-arches-test>
           <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="e1 = e1 - 1">
+            <v-btn color="primary" text @click="nextStep(true)">
               Pagina Anterior
             </v-btn>
-            <v-btn color="primary" @click="e1 = e1 + 1">
+            <v-btn color="primary" @click="nextStep(false)">
               Siguiente Pagina
             </v-btn>
           </div>
         </v-stepper-content>
         <v-stepper-content step="5">
-          <patient-upper-limb-arches-test></patient-upper-limb-arches-test>
+          <patient-gait-analysis></patient-gait-analysis>
           <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="e1 = e1 - 1">
+            <v-btn color="primary" text @click="nextStep(true)">
               Pagina Anterior
             </v-btn>
-            <v-btn color="primary" @click="e1 = e1 + 1">
+            <v-btn color="primary" @click="nextStep(false)">
               Siguiente Pagina
             </v-btn>
           </div>
         </v-stepper-content>
         <v-stepper-content step="6">
-          <patient-upper-limb-arches-test></patient-upper-limb-arches-test>
+          <posture-evaluation></posture-evaluation>
           <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="e1 = e1 - 1">
+            <v-btn color="primary" text @click="nextStep(true)">
               Pagina Anterior
             </v-btn>
-            <v-btn color="primary" @click="e1 = e1 + 1">
+            <v-btn color="primary" @click="nextStep(false)">
               Siguiente Pagina
             </v-btn>
           </div>
         </v-stepper-content>
         <v-stepper-content step="7">
-          <patient-upper-limb-arches-test></patient-upper-limb-arches-test>
+          <assessment-form-analytical-plan></assessment-form-analytical-plan>
           <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="e1 = e1 - 1">
+            <v-btn color="primary" text @click="nextStep(true)">
               Pagina Anterior
             </v-btn>
-            <v-btn color="primary" @click="e1 = e1 + 1">
+            <v-btn color="primary" @click="nextStep(false)">
               Siguiente Pagina
             </v-btn>
           </div>
@@ -118,6 +166,9 @@ import PatientGeneralInfoSaveForm from "../../components/PatientGeneralInfoSaveF
 import PatientMuscleEvaluation from "../../components/patient/PatientMuscleEvaluation";
 import PatientUpperLimbArchesTest from "../../components/patient/PatientUpperLimbArchesTest";
 import PatientLowerLimbArchesTest from "../../components/patient/PatientLowerLimbArchesTest";
+import PatientGaitAnalysis from "../../components/patient/PatientGaitAnalysis";
+import PostureEvaluation from "../../components/patient/PostureEvaluation";
+import AssessmentFormAnalyticalPlan from "../../components/patient/AssessmentFormAnalyticalPlan";
 export default {
   name: "PatientRecordStepper",
   components: {
@@ -125,12 +176,20 @@ export default {
     PatientMuscleEvaluation,
     PatientUpperLimbArchesTest,
     PatientLowerLimbArchesTest,
+    PatientGaitAnalysis,
+    PostureEvaluation,
+    AssessmentFormAnalyticalPlan,
   },
   data() {
     return {
-      e1: 1,
+      currentStep: 1,
     };
   },
-  methods: {},
+  methods: {
+    nextStep(isBack) {
+      const step = parseInt(this.currentStep);
+      this.currentStep = isBack ? step - 1 : step + 1;
+    },
+  },
 };
 </script>

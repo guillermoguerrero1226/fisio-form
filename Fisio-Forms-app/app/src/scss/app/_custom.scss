@@ -1,12 +1,19 @@
 body {
   min-width: 360px !important;
 }
+
 .c-pointer {
   cursor: pointer !important;
 }
+
 .h-100-per {
   height: 100% !important;
 }
+
+.w-100-px {
+  width: 100px !important;
+}
+
 .main-container {
   height: 100%;
   background-color: $background;
@@ -24,6 +31,7 @@ body {
   top: 64px;
   z-index: 1;
 }
+
 .v-app-bar {
   height: 64px !important;
 }
