@@ -92,7 +92,6 @@ export default {
             this.user.password
           );
           this.user.id = res.user.uid;
-          debugger;
           const res3 = await this.db
             .collection("user")
             .doc(this.user.id)
@@ -107,7 +106,6 @@ export default {
             }
           );
         } catch (error) {
-          console.error(error);
           const message = firebaseErrorHandlerHelper[error.code];
           this.$dialog.notify.error(message, {
             position: "top-right",

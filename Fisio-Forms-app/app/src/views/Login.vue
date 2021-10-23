@@ -77,7 +77,6 @@ export default {
           const res = await firebase
             .auth()
             .signInWithEmailAndPassword(this.email, this.password);
-          debugger;
           this.user.id = res.user.uid;
           this.user.additionalUserInfo = res.additionalUserInfo;
           this.user.refreshToken = res.user.refreshToken;

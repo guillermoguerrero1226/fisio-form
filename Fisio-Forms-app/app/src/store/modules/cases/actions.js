@@ -22,7 +22,6 @@ export default {
   },
   async saveCaseAsync({ commit }, caseObject) {
     const result = await CaseService.SaveAsync(caseObject);
-    debugger;
     if (result) {
       caseObject.id = result.id;
       commit("setCurrentCase", caseObject);
