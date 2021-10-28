@@ -53,11 +53,11 @@
         <router-view />
       </transition>
       <v-bottom-navigation fixed app active-class="primary white--text">
-        <v-btn>
+        <v-btn @click="navigateTo('home')">
           <span>Usuarios</span>
           <v-icon>mdi-account-group</v-icon>
         </v-btn>
-        <v-btn>
+        <v-btn @click="navigateTo('historia-clinica')">
           <span>Mi Perfil</span>
           <v-icon>mdi-account</v-icon>
         </v-btn>
@@ -94,6 +94,7 @@ export default {
   computed: {
     ...mapState("user", ["isDarkThemeEnabled", "loggedUser"]),
     ...mapState("ticket", ["userTickets", "cleanCart"]),
+    ...mapState("patient", ["patient"]),
 
     isUserLoggedIn() {
       return this.loggedUser;
@@ -111,6 +112,9 @@ export default {
     },
     login() {
       this.$router.push({ path: "login" });
+    },
+    navigateTo(route) {
+      this.$router.push({ path: route });
     },
   },
   created() {

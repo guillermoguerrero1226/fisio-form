@@ -21,128 +21,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" md="6" lg="8">
-          <v-card class="h-100-per">
-            <v-card-title class="primary--text justify-center">
-              Datos del Paciente
-            </v-card-title>
-            <v-card-text>
-              <v-row>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.names"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Nombres"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.lastNames"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Apellidos"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.gender"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Sexo"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.age"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Edad"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.address"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Domicilio"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="number"
-                    v-model="patientGeneralInfo.phoneNumber"
-                    :rules="[validator.IsValidNumber]"
-                    label="Teléfono"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.email"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Email"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.maritalStatus"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Estado civil"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.schoolGrade"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Escolaridad"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="6" lg="4">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.job"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Ocupación"
-                    required
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="6" lg="4" align="center">
+        <v-col cols="12" md="6" lg="4">
           <v-card class="h-100-per">
             <v-card-title class="primary--text justify-center">
               Datos del Terapeuta
@@ -151,10 +30,8 @@
               <v-row>
                 <v-col cols="12">
                   <v-text-field
-                    dense
-                    outlined
                     type="text"
-                    v-model="patientGeneralInfo.therapist"
+                    v-model="patientGeneralInfo.terapeuta"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Terapeuta"
                     required
@@ -162,25 +39,40 @@
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
-                    dense
-                    outlined
                     type="text"
-                    v-model="patientGeneralInfo.record"
+                    v-model="patientGeneralInfo.expediente"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Expediente"
                     required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12">
-                  <v-text-field
-                    dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.recordDate"
-                    :rules="[validator.IsNullOrEmpty]"
-                    label="Fecha"
-                    required
-                  ></v-text-field>
+                  <v-menu
+                    v-model="fechaRegistroMenu"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    transition="scale-transition"
+                    offset-y
+                    min-width="auto"
+                  >
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-text-field
+                        v-model="patientGeneralInfo.fechaRegistro"
+                        :rules="[validator.IsNullOrEmpty]"
+                        label="Fecha"
+                        prepend-icon="mdi-calendar"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                        dense
+                        required
+                      ></v-text-field>
+                    </template>
+                    <v-date-picker
+                      v-model="patientGeneralInfo.fechaRegistro"
+                      @input="fechaRegistroMenu = false"
+                    ></v-date-picker>
+                  </v-menu>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -204,6 +96,7 @@
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.diabetesDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -213,12 +106,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.rheumaticDiseases"
                     label="Enf. Reumáticas"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.rheumaticDiseasesDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -228,12 +122,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.allergy"
                     label="Alergia"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.allergyDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -243,12 +138,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.encame"
                     label="Encames"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.encameDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -258,12 +154,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.HTA"
                     label="HTA"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.HTADetails"
                     outlined
                     no-resize
                     rows="2"
@@ -273,12 +170,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.accidents"
                     label="Accidentes"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.accidentsDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -288,12 +186,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.cancer"
                     label="Cáncer"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.cancerDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -303,12 +202,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.heartDisease"
                     label="Cardiopatías"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.heartDiseaseDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -318,12 +218,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.transfusions"
                     label="Transfusiones"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.transfusionsDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -333,12 +234,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.surgery"
                     label="Cirugías"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.surgeryDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -348,12 +250,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.fracture"
                     label="Fracturas"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.fractureDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -363,12 +266,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.spasm"
                     label="Espasmos o Contractura Muscular"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.spasmDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -475,7 +379,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.TA"
                     :rules="[validator.IsNullOrEmpty]"
                     label="T/A"
                     required
@@ -486,7 +390,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.Temperature"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Temp"
                     required
@@ -497,7 +401,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.FC"
                     :rules="[validator.IsNullOrEmpty]"
                     label="FC"
                     required
@@ -508,7 +412,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.FR"
                     :rules="[validator.IsNullOrEmpty]"
                     label="FR"
                     required
@@ -529,12 +433,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.smoking"
                     label="Tabaquismo"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.smokingDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -544,12 +449,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.physicalActivity"
                     label="Actividad Física"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.physicalActivityDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -559,12 +465,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.alcoholism"
                     label="Alcoholismo"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.alcoholismDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -574,12 +481,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.selfMedication"
                     label="Se Automedica"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.selfMedicationDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -589,12 +497,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.drugs"
                     label="Drogas"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.drugsDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -604,12 +513,13 @@
                 <v-col cols="6" md="6" lg="2">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.hobby"
                     label="Pasatiempo"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-textarea
+                    v-model="patientGeneralInfo.hobbyDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -630,12 +540,13 @@
                 <v-col cols="4">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.isPregnant"
                     label="Esta embarazada"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="8">
                   <v-textarea
+                    v-model="patientGeneralInfo.isPregnantDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -647,8 +558,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
-                    :rules="[validator.IsNullOrEmpty]"
+                    v-model="patientGeneralInfo.childrenNumber"
                     label="Cuantos hijos tiene"
                     required
                   ></v-text-field>
@@ -671,7 +581,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.reflexes"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Reflejos"
                     required
@@ -682,7 +592,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.sensitivity"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Sensibilidad"
                     required
@@ -693,7 +603,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.language"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Lenguaje/Orientación"
                     required
@@ -704,8 +614,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
-                    :rules="[validator.IsNullOrEmpty]"
+                    v-model="patientGeneralInfo.others"
                     label="Otros"
                     required
                   ></v-text-field>
@@ -721,71 +630,51 @@
             </v-card-title>
             <v-card-text>
               <v-row>
-                <v-col cols="6" md="4" lg="4">
+                <v-col cols="12" md="12" lg="12">
                   <v-text-field
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.site"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Sitio"
                     required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="6" md="4" lg="4">
-                  <v-text-field
+                  <v-checkbox
                     dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
-                    :rules="[validator.IsNullOrEmpty]"
+                    v-model="patientGeneralInfo.isKeloid"
                     label="Queloide"
-                    required
-                  ></v-text-field>
+                  ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="4" lg="4">
-                  <v-text-field
+                  <v-checkbox
                     dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
-                    :rules="[validator.IsNullOrEmpty]"
+                    v-model="patientGeneralInfo.isRetractable"
                     label="Retractil"
-                    required
-                  ></v-text-field>
+                  ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="4" lg="4">
-                  <v-text-field
+                  <v-checkbox
                     dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
-                    :rules="[validator.IsNullOrEmpty]"
+                    v-model="patientGeneralInfo.isOpen"
                     label="Abierta"
-                    required
-                  ></v-text-field>
+                  ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="4" lg="4">
-                  <v-text-field
+                  <v-checkbox
                     dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
-                    :rules="[validator.IsNullOrEmpty]"
+                    v-model="patientGeneralInfo.isWithAdherence"
                     label="Con Adherencia"
-                    required
-                  ></v-text-field>
+                  ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="4" lg="4">
-                  <v-text-field
+                  <v-checkbox
                     dense
-                    outlined
-                    type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
-                    :rules="[validator.IsNullOrEmpty]"
+                    v-model="patientGeneralInfo.isHypertrophic"
                     label="Hipertrófica"
-                    required
-                  ></v-text-field>
+                  ></v-checkbox>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -805,7 +694,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.startValue"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Valor Inicial"
                     required
@@ -816,7 +705,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.startValueIndependent"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Independiente"
                     required
@@ -827,7 +716,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.startValueWheelchair"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Silla de Ruedas"
                     required
@@ -838,7 +727,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.startValueWithHelp"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Con Ayudas"
                     required
@@ -849,7 +738,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.startValueStretchers"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Camillas"
                     required
@@ -863,7 +752,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.endValue"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Valor Final"
                     required
@@ -874,7 +763,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.endValueIndependent"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Independiente"
                     required
@@ -885,7 +774,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.endValueWheelchair"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Silla de Ruedas"
                     required
@@ -896,7 +785,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.endValueWithHelp"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Con Ayudas"
                     required
@@ -907,7 +796,7 @@
                     dense
                     outlined
                     type="text"
-                    v-model="patientGeneralInfo.previousTreatments"
+                    v-model="patientGeneralInfo.endValueStretchers"
                     :rules="[validator.IsNullOrEmpty]"
                     label="Camillas"
                     required
@@ -926,47 +815,48 @@
                 <v-col cols="6" md="6" lg="4">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.free"
                     label="Libre"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.spastic"
                     label="Espásticas"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.claudicant"
                     label="Claudicante"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.ataxic"
                     label="Atáxica"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.marchWithHelp"
                     label="Con Ayuda"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-checkbox
                     dense
-                    v-model="patientGeneralInfo.diabetes"
+                    v-model="patientGeneralInfo.marchOthers"
                     label="Otros"
                   ></v-checkbox>
                 </v-col>
                 <v-col cols="12" md="12" lg="12">
                   <v-textarea
+                    v-model="patientGeneralInfo.marchDetails"
                     outlined
                     no-resize
                     rows="2"
@@ -985,93 +875,28 @@
             </v-card-title>
             <v-card-text>
               <v-row>
-                <v-col
-                  cols="2"
-                  md="1"
-                  lg="1"
-                  offset-sm="2"
-                  offset-md="1"
-                  offset-lg="1"
-                >
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="1"
-                  ></v-checkbox
-                ></v-col>
-                <v-col cols="2" md="1" lg="1">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="2"
-                  ></v-checkbox>
+                <v-col cols="12" class="d-flex justify-center">
+                  <v-radio-group v-model="patientGeneralInfo.scalePain" row>
+                    <v-radio label="1" value="1"></v-radio>
+                    <v-radio label="2" value="2"></v-radio>
+                    <v-radio label="3" value="3"></v-radio>
+                    <v-radio label="4" value="4"></v-radio>
+                    <v-radio label="5" value="5"></v-radio>
+                    <v-radio label="6" value="6"></v-radio>
+                    <v-radio label="7" value="7"></v-radio>
+                    <v-radio label="8" value="8"></v-radio>
+                    <v-radio label="9" value="9"></v-radio>
+                    <v-radio label="10" value="10"></v-radio>
+                  </v-radio-group>
                 </v-col>
-                <v-col cols="2" md="1" lg="1">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="3"
-                  ></v-checkbox>
-                </v-col>
-                <v-col cols="2" md="1" lg="1">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="4"
-                  ></v-checkbox>
-                </v-col>
-                <v-col cols="2" md="1" lg="1">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="5"
-                  ></v-checkbox>
-                </v-col>
-                <v-col
-                  cols="2"
-                  md="1"
-                  lg="1"
-                  offset-sm="2"
-                  offset-md="0"
-                  offset-lg="0"
-                >
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="6"
-                  ></v-checkbox>
-                </v-col>
-                <v-col cols="2" md="1" lg="1">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="7"
-                  ></v-checkbox>
-                </v-col>
-                <v-col cols="2" md="1" lg="1">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="8"
-                  ></v-checkbox>
-                </v-col>
-                <v-col cols="2" md="1" lg="1">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="9"
-                  ></v-checkbox>
-                </v-col>
-                <v-col cols="2" md="1" lg="1">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.diabetes"
-                    label="10"
-                  ></v-checkbox
-                ></v-col>
               </v-row>
             </v-card-text>
           </v-card>
+        </v-col>
+        <v-col cols="12" class="d-flex justify-end">
+          <v-btn @click="saveUserGeneralInfo" color="primary">
+            Guardar y Siguiente
+          </v-btn>
         </v-col>
       </v-row>
     </v-form>
@@ -1087,6 +912,7 @@ export default {
   data: () => {
     return {
       patientGeneralInfo: {},
+      fechaRegistroMenu: false,
       isSaving: false,
       currentId: null,
       loadingGeneralUserInfo: false,
@@ -1096,6 +922,16 @@ export default {
   methods: {
     ...mapActions("cases", ["saveCaseAsync", "getByIdAsync", "updateAsync"]),
     ...mapActions("responseTime", ["getAllResponseTimes"]),
+    async saveUserGeneralInfo() {
+      debugger;
+      const res3 = await this.db
+        .collection("patientGeneralInfo")
+        .add(this.patientGeneralInfo);
+      this.$dialog.notify.success("El case ha sido creado exitosamente", {
+        position: "top-right",
+        timeout: 5000,
+      });
+    },
   },
   async save() {
     if (this.$refs.form.validate()) {
@@ -1117,6 +953,9 @@ export default {
     ...mapState("user", ["loggedUser"]),
     validator() {
       return validationHelper;
+    },
+    db() {
+      return db;
     },
   },
   async created() {

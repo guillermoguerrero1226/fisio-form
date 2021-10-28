@@ -32,16 +32,21 @@ const routes = [
     children: [
       {
         path: "",
-        component: () => import("../components/CaseList.vue"),
+        component: () => import("../components/PatientList.vue"),
       },
       {
-        path: "/casos",
-        name: "casos",
-        component: () => import("../components/CaseList.vue"),
+        path: "/pacientes",
+        name: "pacientes",
+        component: () => import("../components/PatientList.vue"),
       },
       {
-        path: "/registrar-usuario",
-        name: "registrar usuario",
+        path: "/guardar-paciente",
+        name: "guardar paciente",
+        component: () => import("../components/patient/PatientCreateForm.vue"),
+      },
+      {
+        path: "/historia-clinica",
+        name: "historia clinica",
         component: () =>
           import("../components/patient/PatientRecordStepper.vue"),
       },

@@ -1,7 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
-import { cases, userType, ticket, user, responseTime } from "./modules";
+import {
+  cases,
+  userType,
+  ticket,
+  user,
+  responseTime,
+  patient,
+} from "./modules";
 
 const vuexLocalStorage = new VuexPersist({
   storage: window.localStorage,
@@ -22,5 +29,6 @@ export default new Vuex.Store({
     ticket,
     user,
     responseTime,
+    patient,
   },
 });

@@ -83,11 +83,11 @@
       <v-stepper-items>
         <v-stepper-content step="1" class="px-0">
           <patient-general-info-save-form></patient-general-info-save-form>
-          <div class="d-flex justify-end">
+          <!-- <div class="d-flex justify-end">
             <v-btn color="primary" @click="nextStep(false)">
               Siguiente Pagina
             </v-btn>
-          </div>
+          </div> -->
         </v-stepper-content>
 
         <v-stepper-content step="2">
