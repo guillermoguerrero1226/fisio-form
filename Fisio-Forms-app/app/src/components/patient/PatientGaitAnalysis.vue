@@ -56,7 +56,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -69,7 +69,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -91,7 +91,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -106,7 +106,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -122,7 +122,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q5"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -135,7 +135,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q6"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -151,7 +151,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q7"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -166,7 +166,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q8"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -182,7 +182,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q9"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -195,7 +195,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q10"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -217,7 +217,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q11"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -230,7 +230,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q12"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -249,7 +249,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q13"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -262,7 +262,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q14"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -283,7 +283,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.lastNames"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -296,7 +296,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q15"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -309,7 +309,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q16"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -326,7 +326,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q17"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -342,7 +342,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q18"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -357,7 +357,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q19"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -376,7 +376,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q20"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -389,7 +389,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q21"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -406,7 +406,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q22"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -419,7 +419,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q23"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -432,7 +432,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="analisisMarcha.lastNames"
+                              v-model="gaitAnalysis.q24"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -447,6 +447,28 @@
             </v-card-text>
           </v-card>
         </v-col>
+        <v-col cols="12" class="d-flex justify-end">
+          <v-btn
+            outlined
+            @click="saveGaitAnalysisInfo(true)"
+            color="primary black--text"
+          >
+            Guardar y Anterior
+          </v-btn>
+          <v-btn
+            @click="saveGaitAnalysisInfo(undefined)"
+            color="primary"
+            class="mx-2"
+            >Guardar</v-btn
+          >
+          <v-btn
+            outlined
+            @click="saveGaitAnalysisInfo(false)"
+            color="primary text--black"
+          >
+            Guardar y Siguiente
+          </v-btn>
+        </v-col>
       </v-row>
     </v-form>
   </v-container>
@@ -454,23 +476,47 @@
 <script>
 import validationHelper from "@/utils/validationHelper";
 import { mapActions, mapState } from "vuex";
-import { db } from "../../plugins/firebase";
 export default {
   name: "PatientGaitAnalysis",
 
   data() {
     return {
       isLoadingInfo: false,
-      analisisMarcha: {},
+      gaitAnalysis: {},
     };
   },
-  methods: {},
+  methods: {
+    ...mapActions("patient", ["saveGaitAnalysis", "getGaitAnalysis"]),
+    async saveGaitAnalysisInfo(isBack) {
+      const gaitAnalysisPayload = {
+        gaitAnalysis: this.gaitAnalysis,
+        id: this.currentPatient.documentNumber,
+      };
+      const res = await this.saveGaitAnalysis(gaitAnalysisPayload);
+      this.$dialog.notify.success(
+        "El Anaisis de Marcha se ha guardado exitosamente",
+        {
+          position: "top-right",
+          timeout: 5000,
+        }
+      );
+      if (isBack !== undefined) {
+        this.$emit("nextPage", isBack);
+      }
+    },
+  },
   computed: {
-    ...mapState("responseTime", ["responseTimes"]),
     ...mapState("user", ["loggedUser"]),
+    ...mapState("patient", ["currentPatient"]),
     validator() {
       return validationHelper;
     },
+  },
+  async created() {
+    this.isLoadingInfo = true;
+    await this.getGaitAnalysis(this.currentPatient.documentNumber);
+    this.gaitAnalysis = this.currentPatient.gaitAnalysis || {};
+    this.isLoadingInfo = false;
   },
 };
 </script>

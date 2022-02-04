@@ -685,7 +685,7 @@
         <v-col cols="12" md="6" lg="8" align="center">
           <v-card class="h-100-per">
             <v-card-title class="primary--text justify-center">
-              Translados
+              Traslados
             </v-card-title>
             <v-card-text>
               <v-row>
@@ -813,11 +813,7 @@
             <v-card-text>
               <v-row>
                 <v-col cols="6" md="6" lg="4">
-                  <v-checkbox
-                    dense
-                    v-model="patientGeneralInfo.free"
-                    label="Libre"
-                  ></v-checkbox>
+                  <v-checkbox dense label="Libre"></v-checkbox>
                 </v-col>
                 <v-col cols="6" md="6" lg="4">
                   <v-checkbox
@@ -894,7 +890,17 @@
           </v-card>
         </v-col>
         <v-col cols="12" class="d-flex justify-end">
-          <v-btn @click="saveUserGeneralInfo" color="primary">
+          <v-btn
+            @click="saveUserGeneralInfo(false)"
+            color="primary"
+            class="mx-2"
+            >Guardar</v-btn
+          >
+          <v-btn
+            outlined
+            @click="saveUserGeneralInfo(true)"
+            color="primary text--black"
+          >
             Guardar y Siguiente
           </v-btn>
         </v-col>
@@ -920,37 +926,26 @@ export default {
     };
   },
   methods: {
-    ...mapActions("cases", ["saveCaseAsync", "getByIdAsync", "updateAsync"]),
-    ...mapActions("responseTime", ["getAllResponseTimes"]),
-    async saveUserGeneralInfo() {
-      debugger;
-      const res3 = await this.db
-        .collection("patientGeneralInfo")
-        .add(this.patientGeneralInfo);
+    ...mapActions("patient", ["saveGeneralInfo", "getGeneralInfo"]),
+    async saveUserGeneralInfo(nextPage) {
+      const generalInfoPayload = {
+        generalInfo: this.patientGeneralInfo,
+        id: this.currentPatient.documentNumber,
+      };
+      const res = await this.saveGeneralInfo(generalInfoPayload);
       this.$dialog.notify.success("El case ha sido creado exitosamente", {
         position: "top-right",
         timeout: 5000,
       });
+      if (nextPage) {
+        debugger;
+        this.$emit("nextPage", false);
+      }
     },
   },
-  async save() {
-    if (this.$refs.form.validate()) {
-      this.patientGeneralInfo.createdBy = db.doc(`users/${this.loggedUser.id}`);
-      this.patientGeneralInfo.lastModifiedBy = db.doc(
-        `users/${this.loggedUser.id}`
-      );
-      this.patientGeneralInfo.createdOn = new Date();
-      this.patientGeneralInfo.lastModifiedOn = new Date();
-      await this.saveCaseAsync(this.caseObject);
-      this.$dialog.notify.success("El case ha sido creado exitosamente", {
-        position: "top-right",
-        timeout: 5000,
-      });
-    }
-  },
   computed: {
-    ...mapState("responseTime", ["responseTimes"]),
     ...mapState("user", ["loggedUser"]),
+    ...mapState("patient", ["currentPatient"]),
     validator() {
       return validationHelper;
     },
@@ -960,7 +955,8 @@ export default {
   },
   async created() {
     this.loadingGeneralUserInfo = true;
-    await this.getAllResponseTimes();
+    await this.getGeneralInfo(this.currentPatient.documentNumber);
+    this.patientGeneralInfo = this.currentPatient.generalInfo || {};
     this.loadingGeneralUserInfo = false;
   },
 };

@@ -12,7 +12,7 @@ import {
 
 const vuexLocalStorage = new VuexPersist({
   storage: window.localStorage,
-  modules: ["user"],
+  modules: ["user", "patient"],
   key: "RevisorState",
 });
 Vue.use(Vuex);

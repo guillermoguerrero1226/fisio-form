@@ -1,7 +1,7 @@
 <template>
   <v-container
     fluid
-    v-if="isLoadingInfo"
+    v-if="isLoadingUpperLimpEvaluationInfo"
     class="d-flex justify-center flex-column px-0"
   >
     <v-row v-for="item in (1, 2, 3, 4)" :key="item">
@@ -17,7 +17,10 @@
     <v-form ref="form" lazy-validation>
       <v-row no-gutters class="mb-4">
         <v-col cols="12" class="d-flex justify-center"
-          ><h3>Prueba de Arcos de Movilidad para Miembros Superiores</h3>
+          ><h3>
+            Evaluación Goniométrica - Prueba de Arcos de Movilidad para Miembros
+            Superiores
+          </h3>
         </v-col>
       </v-row>
       <v-row>
@@ -57,7 +60,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderFlex1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -67,7 +70,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderExt1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -78,7 +81,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderABD1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -88,7 +91,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderADD1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -101,7 +104,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderFlex2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -111,18 +114,18 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderExt2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
                             ></v-text-field>
                           </td>
-                          <th class="text-left">2</th>
+                          <th class="text-left">1</th>
                           <td colspan="2">
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderABD2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -132,7 +135,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderADD2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -145,7 +148,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderFlex3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -155,18 +158,18 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderExt3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
                             ></v-text-field>
                           </td>
-                          <th class="text-left">3</th>
+                          <th class="text-left">1</th>
                           <td colspan="2">
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderABD3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -176,7 +179,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderADD3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -189,7 +192,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderFlex4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -199,18 +202,18 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderExt4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
                             ></v-text-field>
                           </td>
-                          <th class="text-left">4</th>
+                          <th class="text-left">1</th>
                           <td colspan="2">
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderABD4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -220,7 +223,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.shoulderADD4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -236,6 +239,7 @@
                 </v-col>
                 <v-col cols="12">
                   <v-textarea
+                    v-model="upperLimbTest.shoulderObs"
                     outlined
                     no-resize
                     rows="3"
@@ -283,7 +287,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.rotationFlex1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -293,7 +297,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.rotationExt1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -304,7 +308,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.elbowABD1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -314,7 +318,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.elbowADD1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -327,7 +331,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.rotationFlex2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -337,7 +341,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.rotationExt2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -348,7 +352,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.elbowABD2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -358,7 +362,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.elbowADD2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -371,7 +375,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.rotationFlex3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -381,7 +385,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.rotationExt3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -392,7 +396,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.elbowABD3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -402,7 +406,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.elbowADD3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -415,7 +419,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.rotationFlex4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -425,7 +429,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.rotationExt4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -436,7 +440,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.elbowABD4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -446,7 +450,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.elbowADD4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -462,6 +466,7 @@
                 </v-col>
                 <v-col cols="12">
                   <v-textarea
+                    v-model="upperLimbTest.rotElbowObs"
                     outlined
                     no-resize
                     rows="3"
@@ -509,7 +514,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.antFlex1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -519,7 +524,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.antExt1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -530,7 +535,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.DesABD1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -540,7 +545,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.DesADD1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -553,7 +558,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.antFlex2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -563,7 +568,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.antExt2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -574,7 +579,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.DesABD2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -584,7 +589,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.DesADD2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -597,7 +602,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.antFlex3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -607,7 +612,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.antExt3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -618,7 +623,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.DesABD3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -628,7 +633,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.DesADD3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -641,7 +646,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.antFlex4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -651,7 +656,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.antExt4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -662,7 +667,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.DesABD4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -672,7 +677,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.DesADD4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -688,6 +693,7 @@
                 </v-col>
                 <v-col cols="12">
                   <v-textarea
+                    v-model="upperLimbTest.antDesObs"
                     outlined
                     no-resize
                     rows="3"
@@ -733,7 +739,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerInMCF"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -743,7 +749,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerInIFP"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -753,7 +759,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerInIFD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -763,7 +769,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerInABD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -776,7 +782,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.palmar1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -786,7 +792,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.dorsal1"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -797,7 +803,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerMeMCF"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -807,7 +813,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerMeIFP"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -817,7 +823,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerMeIFD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -827,7 +833,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerMeABD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -840,7 +846,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.palmar2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -850,7 +856,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.dorsal2"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -861,7 +867,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerAnMCF"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -871,7 +877,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerAnIFP"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -881,7 +887,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerAnIFD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -891,7 +897,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerAnABD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -904,7 +910,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.palmar3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -914,7 +920,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.dorsal3"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -925,7 +931,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerMeqMCF"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -935,7 +941,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerMeqIFP"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -945,7 +951,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerMeqIFD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -955,7 +961,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerMeqABD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -968,7 +974,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.palmar4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -978,7 +984,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.dorsal4"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -989,7 +995,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerPulMCF"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -999,7 +1005,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerPulIFP"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -1009,7 +1015,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerPulIFD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -1019,7 +1025,7 @@
                             <v-text-field
                               dense
                               type="text"
-                              v-model="pruebaArcosMiembrosSuperiores.lastNames"
+                              v-model="upperLimbTest.fingerPulABD"
                               :rules="[validator.IsNullOrEmpty]"
                               label=""
                               required
@@ -1032,6 +1038,7 @@
                 </v-col>
                 <v-col cols="12">
                   <v-textarea
+                    v-model="upperLimbTest.ReDedosObs"
                     outlined
                     no-resize
                     rows="3"
@@ -1042,6 +1049,28 @@
             </v-card-text>
           </v-card>
         </v-col>
+        <v-col cols="12" class="d-flex justify-end">
+          <v-btn
+            outlined
+            @click="saveUpperLimpEvaluationInfo(true)"
+            color="primary black--text"
+          >
+            Guardar y Anterior
+          </v-btn>
+          <v-btn
+            @click="saveUpperLimpEvaluationInfo(undefined)"
+            color="primary"
+            class="mx-2"
+            >Guardar</v-btn
+          >
+          <v-btn
+            outlined
+            @click="saveUpperLimpEvaluationInfo(false)"
+            color="primary text--black"
+          >
+            Guardar y Siguiente
+          </v-btn>
+        </v-col>
       </v-row>
     </v-form>
   </v-container>
@@ -1049,32 +1078,52 @@
 <script>
 import validationHelper from "@/utils/validationHelper";
 import { mapActions, mapState } from "vuex";
-import { db } from "../../plugins/firebase";
 export default {
   name: "PatientUpperLimbArchesTest",
 
   data() {
     return {
-      isLoadingInfo: false,
-      pruebaArcosMiembrosSuperiores: {},
-      isInfoDialogOpen: false,
-      grades: [
-        "Grado 0",
-        "Grado 1",
-        "Grado 2",
-        "Grado 3",
-        "Grado 4",
-        "Grado 5",
-      ],
+      isLoadingUpperLimpEvaluationInfo: false,
+      upperLimbTest: {},
     };
   },
-  methods: {},
+  methods: {
+    ...mapActions("patient", [
+      "saveUpperLimpEvaluation",
+      "getUpperLimpEvaluation",
+    ]),
+    async saveUpperLimpEvaluationInfo(isBack) {
+      const upperLimpEvaluationPayload = {
+        upperLimpEvaluation: this.upperLimbTest,
+        id: this.currentPatient.documentNumber,
+      };
+      const res = await this.saveUpperLimpEvaluation(
+        upperLimpEvaluationPayload
+      );
+      this.$dialog.notify.success(
+        "La Evaluación Goniométrica se ha guardado exitosamente",
+        {
+          position: "top-right",
+          timeout: 5000,
+        }
+      );
+      if (isBack !== undefined) {
+        this.$emit("nextPage", isBack);
+      }
+    },
+  },
   computed: {
-    ...mapState("responseTime", ["responseTimes"]),
     ...mapState("user", ["loggedUser"]),
+    ...mapState("patient", ["currentPatient"]),
     validator() {
       return validationHelper;
     },
+  },
+  async created() {
+    this.isLoadingUpperLimpEvaluationInfo = true;
+    await this.getUpperLimpEvaluation(this.currentPatient.documentNumber);
+    this.upperLimbTest = this.currentPatient.upperLimpEvaluation || {};
+    this.isLoadingUpperLimpEvaluationInfo = false;
   },
 };
 </script>

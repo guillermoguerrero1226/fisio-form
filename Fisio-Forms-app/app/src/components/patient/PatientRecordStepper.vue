@@ -82,80 +82,37 @@
 
       <v-stepper-items>
         <v-stepper-content step="1" class="px-0">
-          <patient-general-info-save-form></patient-general-info-save-form>
-          <!-- <div class="d-flex justify-end">
-            <v-btn color="primary" @click="nextStep(false)">
-              Siguiente Pagina
-            </v-btn>
-          </div> -->
+          <patient-general-info-save-form
+            @nextPage="nextStep"
+          ></patient-general-info-save-form>
         </v-stepper-content>
 
         <v-stepper-content step="2">
-          <patient-muscle-evaluation></patient-muscle-evaluation>
-          <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="nextStep(true)">
-              Pagina Anterior
-            </v-btn>
-            <v-btn color="primary" @click="nextStep(false)">
-              Siguiente Pagina
-            </v-btn>
-          </div>
+          <patient-muscle-evaluation
+            @nextPage="nextStep"
+          ></patient-muscle-evaluation>
         </v-stepper-content>
 
         <v-stepper-content step="3">
-          <patient-upper-limb-arches-test></patient-upper-limb-arches-test>
-          <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="nextStep(true)">
-              Pagina Anterior
-            </v-btn>
-            <v-btn color="primary" @click="nextStep(false)">
-              Siguiente Pagina
-            </v-btn>
-          </div>
+          <patient-upper-limb-arches-test
+            @nextPage="nextStep"
+          ></patient-upper-limb-arches-test>
         </v-stepper-content>
         <v-stepper-content step="4">
-          <patient-lower-limb-arches-test></patient-lower-limb-arches-test>
-          <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="nextStep(true)">
-              Pagina Anterior
-            </v-btn>
-            <v-btn color="primary" @click="nextStep(false)">
-              Siguiente Pagina
-            </v-btn>
-          </div>
+          <patient-lower-limb-arches-test
+            @nextPage="nextStep"
+          ></patient-lower-limb-arches-test>
         </v-stepper-content>
         <v-stepper-content step="5">
-          <patient-gait-analysis></patient-gait-analysis>
-          <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="nextStep(true)">
-              Pagina Anterior
-            </v-btn>
-            <v-btn color="primary" @click="nextStep(false)">
-              Siguiente Pagina
-            </v-btn>
-          </div>
+          <patient-gait-analysis @nextPage="nextStep"></patient-gait-analysis>
         </v-stepper-content>
         <v-stepper-content step="6">
-          <posture-evaluation></posture-evaluation>
-          <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="nextStep(true)">
-              Pagina Anterior
-            </v-btn>
-            <v-btn color="primary" @click="nextStep(false)">
-              Siguiente Pagina
-            </v-btn>
-          </div>
+          <posture-evaluation @nextPage="nextStep"></posture-evaluation>
         </v-stepper-content>
         <v-stepper-content step="7">
-          <assessment-form-analytical-plan></assessment-form-analytical-plan>
-          <div class="d-flex justify-end">
-            <v-btn color="primary" text @click="nextStep(true)">
-              Pagina Anterior
-            </v-btn>
-            <v-btn color="primary" @click="nextStep(false)">
-              Siguiente Pagina
-            </v-btn>
-          </div>
+          <assessment-form-analytical-plan
+            @nextPage="nextStep"
+          ></assessment-form-analytical-plan>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>

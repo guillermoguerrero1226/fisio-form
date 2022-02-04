@@ -1,13 +1,22 @@
 <template>
   <div>
     <v-app-bar app dark flat color="primary">
-      <div class="d-flex align-center">
+      <div class="d-flex align-center justify-space-around">
         <v-img
           max-height="50"
           max-width="50"
           src="../assets/icons/form.png"
         ></v-img>
-        <v-toolbar-title class="ml-4">Historia Clinica Motrix</v-toolbar-title>
+        <v-toolbar-title class="ml-4">
+          <span> Historia Clinica Motrix </span>
+          <br />
+          <span class="font-weight-black">
+            {{ this.currentPatient.names }}
+          </span>
+          <span class="font-weight-black">
+            {{ this.currentPatient.lastNames }}
+          </span>
+        </v-toolbar-title>
       </div>
       <v-spacer></v-spacer>
       <v-menu bottom left :close-on-content-click="false">
@@ -54,7 +63,7 @@
       </transition>
       <v-bottom-navigation fixed app active-class="primary white--text">
         <v-btn @click="navigateTo('home')">
-          <span>Usuarios</span>
+          <span>Pacientes</span>
           <v-icon>mdi-account-group</v-icon>
         </v-btn>
         <v-btn @click="navigateTo('historia-clinica')">
@@ -94,7 +103,7 @@ export default {
   computed: {
     ...mapState("user", ["isDarkThemeEnabled", "loggedUser"]),
     ...mapState("ticket", ["userTickets", "cleanCart"]),
-    ...mapState("patient", ["patient"]),
+    ...mapState("patient", ["patient", "currentPatient"]),
 
     isUserLoggedIn() {
       return this.loggedUser;
